@@ -1,0 +1,7 @@
+<p>hey admin</p>
+<!-- <div *ngFor = "let file of files">
+   <div class="filename" (click)="deleteFile(file.file_name)">{{file.file_name}}</div>
+</div> -->
+<div *ngFor = "let file of files">
+   <div class="filename" (click)="deleteFile(file.file_name)"><li>{{file.file_name}}</li></div>
+</div>

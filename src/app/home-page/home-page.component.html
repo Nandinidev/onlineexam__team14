@@ -1,0 +1,69 @@
+<!-- 
+  <body>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form class="box">
+                      <h2>Login</h2>
+                      
+                        <p class="text-muted"> Please enter your login and password!</p> 
+                        <input type="text" name="Email" placeholder="Username"> 
+                        <input type="password" name="Password" placeholder="Password">
+                         <a class="forgot text-muted" href="#">Forgot password?</a> 
+                         <button class="button" [routerLink]="'/afterlogin'" type="button" value="Login"
+                        (click)="onlogin()">
+                            Login
+                         </button>
+                         <p>New?Please Register</p>              
+                         <button type="button" class="button"[routerLink]="'/registeruser'" value="register">
+                          Register
+                         </button>
+                         <span style="color:red;">{{errmsg}}</span>
+                         <router-outlet></router-outlet>                      
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body> -->
+
+ 
+<body>
+   
+  <div class="container">
+      <div class="row">
+          <div class="input-field col-md-6">
+              <!--<div class="card"> -->
+                  <form #loginForm='ngForm' class="box">
+                    <h2>Login</h2>
+                    
+                      <p class="text-muted"> Please enter your login and password!</p> 
+                      <input type="text" #email='ngModel' [(ngModel)]="user.Email" name="Mail" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+                      <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                          <div *ngIf="email.errors.required" style="color:red;">Enter Email !</div>
+                          <div *ngIf="email.errors.pattern" style="color:red;">Enter a valid Email !</div>
+                      </div>
+                      <input data-error="required field!" [(ngModel)]="user.Password" type="password" name="Pwd" placeholder="Password">
+                       
+
+
+                      <a class="forgot text-muted" href="#">Forgot password?</a> 
+                       
+                       <button [disabled]='loginForm.form.invalid' class="button" type="button" value="Login" (click)="login()">
+                          Login
+                       </button>
+                       
+                       <p>New?Please Register</p>              
+                       <button class="button" [routerLink]="'/registeruser'" value="register">
+                        Register
+                       </button>
+                       <router-outlet></router-outlet>                      
+                  </form>
+             <!-- </div> -->
+          </div>
+      </div>
+  </div>
+</body>
+

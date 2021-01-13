@@ -1,0 +1,102 @@
+<body>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card" >
+                    <form class="box">
+                        <div style="float: right;">
+                            <button (click)="LogOut()"  type="button" class="button"> Logout</button>
+                        </div><br><br>
+                        <div style="float: left;"><br><br>
+                      <h1>WorkSpace</h1><br><br>
+                      <div class="select" style="width:200px;">
+                      <select id="sub-select" name="topic" [(ngModel)]="selectedExamTopic">
+
+                       <option value="">Select Subject</option>
+                    
+                        <option value="java">java</option>
+                    
+                    
+                        <option value="cnet">C#/.net</option>
+                    
+                        <option value="php">php</option>
+                    
+                        <option value="sql">sql</option>
+                    
+                        <option value="cplus">c/c++</option>
+                        
+                    
+                    </select>
+                    </div>
+                    <div class="select" style="width:200px;">
+                    <select id="sub-select" name="city" [(ngModel)]="selectedCity">
+
+                        <option value="">Select City</option>
+                    
+                        <option value="Mysore">Mysore</option>
+                    
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Mangalore">Mangalore</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="Bangalore">Bangalore</option>
+                    
+                        <option value="Madurai">Madurai</option>
+                    
+                        <option value="Trichy">Trichy</option>
+                    
+                        <option value="hosur">Hosur</option>
+                    
+                    </select>
+                    </div>
+                  <button (click)="searchreports()"  type="button" style="align-content: center;" class="button"> Search</button>
+                        </div>
+                       <div>
+                       <!-- <table >
+                           <tr *ngFor="let report of reports">
+                               
+                               <td>{{report?.City}}</td>
+                              
+                                <td>{{report?.Email}}</td>
+                                <td>{{report?.Full_Name}}</td>
+                                <td>{{report?.Mobile_Number}}</td>
+                                <td>{{report?.Qualification}}</td>
+                                <td>{{report?.State}}</td>
+                                <td>{{report?.Score}}</td>
+                                
+                            
+                           </tr>
+                       </table> -->
+                       <div class="center">
+                       <table id="customers">
+                        <tr >
+                            <td style="color: teal;">City</td>
+                           
+                             <td style="color: teal;">Full_Name</td>
+                             <td style="color: teal;">Mobile_Number</td>
+                             <td style="color: teal;">Qualification</td>
+                             <td style="color: teal;">Score</td>
+                             <td style="color: teal;">State</td>
+                             
+                        </tr>
+                   
+                               <tr *ngFor="let report of reports">
+                                   <td>{{report?.City}}</td>
+                             
+                                    <td>{{report?.Full_Name}}</td>
+                                    <td>{{report?.Mobile_Number}}</td>
+                                    <td>{{report?.Qualification}}</td>
+                                    <td>{{report?.Score}}</td>
+                                    <td>{{report?.State}}</td>
+                                    
+                               </tr>
+                           </table></div>
+                    </div>
+                     
+                   
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>

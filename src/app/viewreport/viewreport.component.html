@@ -1,0 +1,11 @@
+
+<button (click)="viewmyreport()" type="button" class="button"> show result</button>
+<div class="round3">
+<div *ngFor = "let arr of report">
+
+    <div *ngFor="let item of arr | keyvalue">
+        <b style="color: teal;">{{item.key}}</b> : <b>{{item.value}}</b>
+    </div>
+   <br>
+</div>
+</div>

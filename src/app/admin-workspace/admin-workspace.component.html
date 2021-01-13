@@ -1,0 +1,24 @@
+
+
+<body>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form class="box">
+                        <div style="float: right;">
+                            <button on-click="LogOut()" class="button">LogOut</button>
+                            </div>
+                            <div style="float: left;"><br><br>
+                      <h2>WorkSpace</h2><br><br>                                         
+                      <button [routerLink]="['/excelfile']" class="button"> Add Question</button><br>
+                      <button class="button"[routerLink]="['/deleteques']"> Remove Question</button><br>
+                      <button class ="button" [routerLink]="['/adminreport']" class="button" >View Reports</button>
+                             </div>                  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>

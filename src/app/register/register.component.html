@@ -1,0 +1,118 @@
+
+  
+  <!-- <body>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            
+                    <form class="box">
+                      <h2>Register here!</h2>
+                      
+                        
+                         <input type="text"  name="name" placeholder="Fullname" [(ngModel)]= "registers.Full_Name" required>
+                         <input type="password"  name="name" placeholder="Password" [(ngModel)]= "registers.Password" required>
+                        <input type="email" #email='ngModel' name="mail" placeholder="Email"  [(ngModel)]="registers.Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                            <div *ngIf="email.errors.required" style="color:red;">Enter Email !</div>
+                            <div *ngIf="email.errors.pattern" style="color:red;">Enter a valid Email !</div>
+                        </div>
+                       
+                        <input type="number" name="MobileNumber" placeholder="MobileNumber"  [(ngModel)]="registers.Mobile_Number">
+                        <input placeholder="DateOfBirth" class="textbox-n" name="DateOfBirth" type="text" onfocus="(this.type='date')"
+                         id="date"  [(ngModel)]="registers.Date_of_Birth">
+                        <input type="text" name="City" placeholder="City" [(ngModel)]="registers.City">
+                        <input type="text" name="State" placeholder="State" [(ngModel)]="registers.State">
+                        <input type="text" name="Qualification" placeholder="Qualification" [(ngModel)]="registers.Qualification">
+                        <input type="number" name="YearofCompletion" placeholder="YearofCompletion" [(ngModel)]="registers.Year_of_Completion">      
+                        <button class="button"  type="submit" value="registers"(click)="insertuser()">
+                        Register
+                        </button>
+                        
+                       
+                    </form>
+                
+            </div>
+        </div>
+    </div>
+  </body> -->
+
+  <body>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!--<div class="card"> --> 
+                    <form #registerForm='ngForm' class="box">
+                      <h2>Register here!</h2>
+                      
+                        
+                         <input type="text"  name="name" placeholder="Fullname" #name='ngModel' [(ngModel)]= "registers.Full_Name" required >
+                         <div *ngIf="name.invalid && (name.touched || name.dirty)">
+                            <div *ngIf="name.errors.required" style="color:red;">Required Field..!</div>
+                         </div>
+
+                         <input type="password"  name="name" placeholder="Password" #Password='ngModel' [(ngModel)]= "registers.Password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" >
+                         
+                            <div *ngIf="Password.touched && Password.invalid" >
+                                <!--<div *ngIf="Password.touched && Password.invalid" class="alert alert-danger"> -->
+                                <div *ngIf="Password.errors.required" style="color:red;">Password is required.</div>
+                                <div *ngIf="Password.errors.pattern" style="color:red;">
+                                    <span> Password should be->
+                                        :At least 8 characters in length
+                                        :Lowercase letters
+                                        :Uppercase letters
+                                        :Numbers
+                                        :Special characters</span>
+                                    
+                                </div>
+                            </div>
+                        
+                        <input type="email" name="mail" placeholder="Email" #email='ngModel' [(ngModel)]="registers.Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                            <div *ngIf="email.errors.required" style="color:red;">Enter Email</div>
+                            <div *ngIf="email.errors.pattern" style="color:red;">Enter valid Email</div>
+                        </div>
+                        
+                        <input type="text" name="MobileNumber" placeholder="MobileNumber"  #mobnumber="ngModel" [(ngModel)]="registers.Mobile_Number" pattern = "^((\\+91-?)|0)?[0-9]{10}$">
+                        <div *ngIf="mobnumber.invalid && (mobnumber.touched || mobnumber.dirty)">
+                            <div *ngIf="mobnumber.errors.required" style="color:red;">Enter Mobile Number</div>
+                            <div *ngIf="mobnumber.errors.pattern" style="color:red;">Enter Valid 10 digit Mobile Number</div>
+                        </div>
+                        
+                        <input placeholder="DateOfBirth" class="textbox-n" name="DateOfBirth" type="text" onfocus="(this.type='date')"
+                         id="date" #date="ngModel"  [(ngModel)]="registers.Date_of_Birth" required>
+                         <div *ngIf="date.invalid && (date.touched || date.dirty)">
+                            <div *ngIf="date.errors.required" style="color:red;">Required Field..!</div>
+                         </div>
+
+                        <input type="text" name="City" placeholder="City" #city="ngModel" [(ngModel)]="registers.City">
+                        <div *ngIf="city.invalid && (city.touched || city.dirty)">
+                            <div *ngIf="city.errors.required" style="color:red;">Required Field..!</div>
+                        </div>
+                        
+                        <input type="text" name="State" placeholder="State" #state="ngModel" [(ngModel)]="registers.State">
+                        <div *ngIf="state.invalid && (state.touched || state.dirty)">
+                            <div *ngIf="state.errors.required" style="color:red;">Required Field..!</div>
+                        </div>
+                        
+                        <input type="text" name="Qualification" placeholder="Qualification" #qualification="ngModel" [(ngModel)]="registers.Qualification">
+                        <div *ngIf="qualification.invalid && (qualification.touched || qualification.dirty)">
+                            <div *ngIf="qualification.errors.required" style="color:red;">Required Field..!</div>
+                        </div>
+                        <input type="number" name="YearofCompletion" placeholder="YearofCompletion" #year="ngModel" [(ngModel)]="registers.Year_of_Completion">  
+                        <div *ngIf="year.invalid && (year.touched || year.dirty)">
+                            <div *ngIf="year.errors.required" style="color:red;">Required Field..!</div>
+                        </div>
+
+                        <button [disabled]='registerForm.form.invalid' class="button"  type="button" value="registers" (click)="insertuser()">
+                        Register
+                        </button>
+                        
+                       
+                    </form>
+                <!--</div> -->
+            </div>
+        </div>
+    </div>
+  </body>
